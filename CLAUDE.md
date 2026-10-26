@@ -12,7 +12,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | `npm run types`   | Regenerate `src/definition-schema.d.ts` from `definition-schema.json` (run after every schema change; never edit the `.d.ts` manually) |
 | `npm run link`    | Build, `npm link`, then link into `../RESWARM/frontend` for integration testing |
 | `npm run unlink`  | Reverse of `link` and reinstall the published package                |
-| `npm run release` | `npm version patch`: preflight guards (on `main`, clean tree, not behind `origin/main`, generated files current, build passes) → bump + `dist/` rebuild (`version` hook, so the local build registers the new tag) → commit + bare-semver tag → `git push --follow-tags` → waits on the CI publish. Also `release:minor` / `release:major`. |
+| `just lint` | What the CI gate checks besides the build: regenerating the committed generated files changes nothing |
+| `just merge` / `just release-patch` | Pull requests into `main` from a feature branch with everything committed; the merge of a release pull request publishes to npm in CI (`build-publish.yml`), then the release GitHub App tags the bare version. Also `release-minor` / `release-major`. |
 
 No test runner, no linter is configured. Node `>=24.9.0`, npm `>=10.0.2`.
 
@@ -106,7 +107,7 @@ CDN/import-map consumers must polyfill `window.process = { env: { NODE_ENV: 'pro
 
 ## Platform registration after release
 
-After `npm run release` publishes a new version, register it on the platform with:
+After a release (`just release-patch`) publishes a new version, register it on the platform with:
 
 ```sql
 select swarm.f_update_widget_master('{"package_name": "widget-linechart", "version": "X.Y.Z"}'::jsonb);
