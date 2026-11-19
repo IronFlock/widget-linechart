@@ -65,7 +65,7 @@
                 },
                 "showLegend": {
                     "title": "Show Legend",
-                    "description": "When enabled, displays a legend identifying each data series by color and label. Essential for multi-series charts.",
+                    "description": "When enabled, displays a legend identifying each data series by color and label. Essential for multi-series charts. Set it to false when the chart draws only one series (one dataseries entry and no data[].pivot that splits it into several lines or bars) and the title already names that series: the legend would only repeat the title and takes room from the plot.",
                     "type": "boolean",
                     "default": true,
                     "dataDrivenDisabled": true,
