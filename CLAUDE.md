@@ -112,3 +112,5 @@ After a release (`just release-patch`) publishes a new version, register it on t
 ```sql
 select swarm.f_update_widget_master('{"package_name": "widget-linechart", "version": "X.Y.Z"}'::jsonb);
 ```
+
+@AGENTS.md
