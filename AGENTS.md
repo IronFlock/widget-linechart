@@ -46,7 +46,7 @@ and remaining work there when handing a task to another developer or agent.
 | `npm run build`   | Production library build to `dist/`                                  |
 | `npm run watch`   | `vite build --watch` only                                            |
 | `npm run types`   | Regenerate `src/definition-schema.d.ts` from `definition-schema.json` (run after every schema change; never edit the `.d.ts` manually) |
-| `npm run link`    | Build, `npm link`, then link into `../RESWARM/frontend` for integration testing |
+| `npm run link`    | Build and `npm link` into the studio checkout at `../../studio`. Only studio's appliance build reads `node_modules`; its dev server already serves this checkout's `dist/`, so `npm run watch` is enough for dev |
 | `npm run unlink`  | Reverse of `link` and reinstall the published package                |
 | `just lint` | What the CI gate checks besides the build: regenerating the committed generated files changes nothing |
 | `just merge` / `just release-patch` | Pull requests into `main` from a feature branch with everything committed; the merge of a release pull request publishes to npm in CI (`build-publish.yml`), then the release GitHub App tags the bare version. Also `release-minor` / `release-major`. |
