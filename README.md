@@ -45,6 +45,13 @@ For CDN usage without a bundler, configure an import map with all dependencies:
 <script type="importmap">
     {
         "imports": {
+            "lit": "https://cdn.jsdelivr.net/npm/lit@3.3.3/index.js",
+            "lit/": "https://cdn.jsdelivr.net/npm/lit@3.3.3/",
+            "@lit/reactive-element": "https://cdn.jsdelivr.net/npm/@lit/reactive-element@2.1.2/reactive-element.js",
+            "@lit/reactive-element/": "https://cdn.jsdelivr.net/npm/@lit/reactive-element@2.1.2/",
+            "lit-html": "https://cdn.jsdelivr.net/npm/lit-html@3.3.3/lit-html.js",
+            "lit-html/": "https://cdn.jsdelivr.net/npm/lit-html@3.3.3/",
+            "lit-element/": "https://cdn.jsdelivr.net/npm/lit-element@4.1.1/",
             "echarts/core": "https://cdn.jsdelivr.net/npm/echarts@6.0.0/core.js",
             "echarts/charts": "https://cdn.jsdelivr.net/npm/echarts@6.0.0/charts.js",
             "echarts/components": "https://cdn.jsdelivr.net/npm/echarts@6.0.0/components.js",
@@ -73,8 +80,9 @@ This widget has been optimized to externalize heavy dependencies:
 
 - **echarts** (^6.0.0) - Chart rendering engine (~300KB)
 - **tinycolor2** (^1.6.0) - Color manipulation utilities
+- **lit** (^3.3.3) - installed with the widget; a bundler resolves it, an import map has to map it
 
-Bundle size: ~36KB (down from 625KB with bundled echarts)
+Bundle size: ~26KB (down from 625KB with bundled echarts)
 
 ## Configuration
 
