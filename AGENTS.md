@@ -116,7 +116,8 @@ Internal state holds a `Map<chartName, { echart, series, ... }>` so a single com
 ### Build pipeline (`vite.config.ts`)
 
 - Library build: ES module, entry `src/widget-linechart.ts`, output `dist/widget-linechart.js`.
-- `echarts` (regex `/^echarts/`) and `tinycolor2` are marked `external` and listed as `peerDependencies`. Consumers must install them; bundle is ~36KB instead of ~625KB.
+- `echarts` (regex `/^echarts/`) and `tinycolor2` are marked `external` and listed as `peerDependencies`. Consumers must install them; bundle is ~26KB instead of ~625KB.
+- `lit` is external too (studio's import map provides one copy for all widgets). It stays in `dependencies`, because the package's types import it.
 - `process.env.NODE_ENV` is statically defined as `'production'` (required for ECharts optimization paths).
 - `tslib` aliased to `tslib/tslib.es6.js` so the externalized output uses the ESM build.
 - `optimizeDeps.exclude` lists the externals so Vite's dev server doesn't try to pre-bundle them.

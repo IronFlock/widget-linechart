@@ -17,7 +17,7 @@ export default defineConfig({
         lib: { entry: 'src/widget-linechart.ts', formats: ['es'], fileName: 'widget-linechart' },
         sourcemap: true,
         rollupOptions: {
-            external: [/^echarts/, 'tinycolor2'],
+            external: [/^lit/, /^@lit/, /^echarts/, 'tinycolor2'],
             output: { banner: '/* @license Copyright (c) 2026 Record Evolution GmbH. All rights reserved.*/' }
         }
     }
